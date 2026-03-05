@@ -3,29 +3,9 @@ info:
   title: LiteLLM API 文档
   description: 自建 LiteLLM 网关的 API 文档，完全兼容 OpenAI 格式。
   version: 1.11.0
-  x-gitbook-description-document:
-    object: document
-    data:
-      schemaVersion: 9
-    nodes:
-      - object: block
-        type: paragraph
-        isVoid: false
-        data: {}
-        nodes:
-          - object: text
-            leaves:
-              - object: leaf
-                text: 自建 LiteLLM 网关的 API 文档，完全兼容 OpenAI 格式。
-                marks: []
-            key: QFOvTDrOzjun
-        key: LtH3fpLREm53
-    key: rH71NHG2ZECo
-  x-gitbook-description-html: <p>自建 LiteLLM 网关的 API 文档，完全兼容 OpenAI 格式。</p>
 servers:
   - url: https://aillm.sinocache.net
     description: LiteLLM 网关服务器
-    x-gitbook-description-html: <p>LiteLLM 网关服务器</p>
 tags:
   # 第一级分类：功能分类
   - name: chat_completions
@@ -133,7 +113,6 @@ paths:
                   max_completion_tokens: 50
                   'n': 1
                   stream: false
-                x-gitbook-description-html: <p>一个简单的对话示例，包含系统提示和用户消息。</p>
               streaming:
                 summary: 流式
                 description: '通过设置 stream: true 启用流式响应。'
@@ -147,7 +126,6 @@ paths:
                   temperature: 0.7
                   max_completion_tokens: 100
                   stream: true
-                x-gitbook-description-html: '<p>通过设置 stream: true 启用流式响应。</p>'
       responses:
         '200':
           description: 成功响应
@@ -174,16 +152,12 @@ paths:
                       prompt_tokens: 9
                       completion_tokens: 12
                       total_tokens: 21
-                  x-gitbook-description-html: <p>对应基础聊天请求的响应示例。</p>
             text/event-stream:
               schema:
                 type: string
                 description: >-
                   流式响应以 Server-Sent Events 格式返回，每个事件是一行以 'data: ' 开头的 JSON
                   数据块，最后以 'data: [DONE]' 结束。
-                x-gitbook-description-html: >-
-                  <p>流式响应以 Server-Sent Events 格式返回，每个事件是一行以 'data: ' 开头的 JSON
-                  数据块，最后以 'data: [DONE]' 结束。</p>
               examples:
                 streaming-response:
                   summary: 流式响应示例
@@ -202,8 +176,6 @@ paths:
                     {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677652288,"model":"gpt-4","choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}
 
                     data: [DONE]
-                  x-gitbook-description-html: <p>展示流式聊天过程中陆续发送的事件。</p>
-          x-gitbook-description-html: <p>成功响应</p>
         '400':
           $ref: '#/components/responses/ErrorResponse'
         '401':
@@ -246,7 +218,6 @@ paths:
                   temperature: 0.7
                   'n': 1
                   stream: false
-                x-gitbook-description-html: <p>一个简单的文本补全示例。</p>
               streaming:
                 summary: 流式
                 description: '通过设置 stream: true 启用流式响应。'
@@ -256,7 +227,6 @@ paths:
                   max_tokens: 30
                   temperature: 0.8
                   stream: true
-                x-gitbook-description-html: '<p>通过设置 stream: true 启用流式响应。</p>'
       responses:
         '200':
           description: 成功响应
@@ -282,16 +252,13 @@ paths:
                       prompt_tokens: 4
                       completion_tokens: 12
                       total_tokens: 16
-                  x-gitbook-description-html: <p>对应基础文本补全请求的响应示例。</p>
+
             text/event-stream:
               schema:
                 type: string
                 description: >-
                   流式响应以 Server-Sent Events 格式返回，每个事件是一行以 'data: ' 开头的 JSON
                   数据块，最后以 'data: [DONE]' 结束。
-                x-gitbook-description-html: >-
-                  <p>流式响应以 Server-Sent Events 格式返回，每个事件是一行以 'data: ' 开头的 JSON
-                  数据块，最后以 'data: [DONE]' 结束。</p>
               examples:
                 streaming-response:
                   summary: 流式响应示例
@@ -319,8 +286,6 @@ paths:
                     {"id":"cmpl-789","object":"text_completion","created":1677652300,"model":"gpt-3.5-turbo-instruct","choices":[{"text":".","index":0,"logprobs":null,"finish_reason":"length"}]}
 
                     data: [DONE]
-                  x-gitbook-description-html: <p>展示流式文本补全过程中陆续发送的事件。</p>
-          x-gitbook-description-html: <p>成功响应</p>
         '400':
           $ref: '#/components/responses/ErrorResponse'
         '401':
@@ -351,7 +316,6 @@ paths:
                 value:
                   model: text-embedding-ada-002
                   input: The quick brown fox jumps over the lazy dog
-                x-gitbook-description-html: <p>对单个字符串输入生成嵌入向量。</p>
               multiple-inputs:
                 summary: 多输入
                 description: 对多个字符串输入生成嵌入向量。
@@ -360,7 +324,6 @@ paths:
                   input:
                     - Hello world
                     - OpenAI is amazing
-                x-gitbook-description-html: <p>对多个字符串输入生成嵌入向量。</p>
       responses:
         '200':
           description: 成功响应
@@ -385,7 +348,6 @@ paths:
                     usage:
                       prompt_tokens: 8
                       total_tokens: 8
-                  x-gitbook-description-html: <p>对应单个输入的基础响应。</p>
                 multiple-inputs-response:
                   summary: 多输入响应
                   description: 对应多个输入的响应，包含多个嵌入向量。
@@ -408,8 +370,6 @@ paths:
                     usage:
                       prompt_tokens: 6
                       total_tokens: 6
-                  x-gitbook-description-html: <p>对应多个输入的响应，包含多个嵌入向量。</p>
-          x-gitbook-description-html: <p>成功响应</p>
         '400':
           $ref: '#/components/responses/ErrorResponse'
         '401':
@@ -445,7 +405,6 @@ paths:
                   prompt: A cute cat sitting on a windowsill
                   'n': 1
                   size: 1024x1024
-                x-gitbook-description-html: <p>生成一张 1024x1024 的图像。</p>
               hd-quality:
                 summary: 高清质量
                 description: 生成高清质量的图像。
@@ -455,7 +414,6 @@ paths:
                   'n': 1
                   quality: hd
                   size: 1792x1024
-                x-gitbook-description-html: <p>生成高清质量的图像。</p>
       responses:
         '200':
           description: 成功响应
@@ -482,8 +440,6 @@ paths:
                       total_tokens: 100
                       input_tokens: 50
                       output_tokens: 50
-                  x-gitbook-description-html: <p>返回包含图像 URL 和可选字段的完整响应。</p>
-          x-gitbook-description-html: <p>成功响应</p>
         '400':
           $ref: '#/components/responses/ErrorResponse'
         '401':
@@ -539,7 +495,6 @@ paths:
                   prompt: Add hats to all people
                   'n': 1
                   size: 1024x1024
-                x-gitbook-description-html: <p>使用两个图像文件进行编辑，并可选使用蒙版。</p>
       responses:
         '200':
           description: 成功响应
@@ -563,8 +518,6 @@ paths:
                     total_tokens: 150
                     input_tokens: 100
                     output_tokens: 50
-                  x-gitbook-description-html: <p>返回包含编辑后图像 URL 的完整响应。</p>
-          x-gitbook-description-html: <p>成功响应</p>
         '400':
           $ref: '#/components/responses/ErrorResponse'
         '401':
@@ -596,7 +549,6 @@ paths:
                   model: whisper-1
                   file: (binary)
                   language: en
-                x-gitbook-description-html: <p>转录一个音频文件。</p>
       responses:
         '200':
           description: 成功响应
@@ -610,8 +562,6 @@ paths:
                   description: 返回包含转录文本的完整响应。
                   value:
                     text: Hello, this is a test transcription.
-                  x-gitbook-description-html: <p>返回包含转录文本的完整响应。</p>
-          x-gitbook-description-html: <p>成功响应</p>
         '400':
           $ref: '#/components/responses/ErrorResponse'
         '401':

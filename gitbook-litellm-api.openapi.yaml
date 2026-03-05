@@ -18,9 +18,9 @@ info:
               - object: leaf
                 text: 自建 LiteLLM 网关的 API 文档，完全兼容 OpenAI 格式。
                 marks: []
-            key: S7pYaHGF8keV
-        key: eMYIUcM3uElg
-    key: MYzUhbWgAPsy
+            key: oWOgjcVCfAin
+        key: e70ggrcwRj6b
+    key: yhvSOl10Bm6i
   x-gitbook-description-html: <p>自建 LiteLLM 网关的 API 文档，完全兼容 OpenAI 格式。</p>
 servers:
   - url: https://aillm.sinocache.net
@@ -46,9 +46,9 @@ tags:
                 - object: leaf
                   text: 对话生成相关的 API，包括聊天补全和文本补全
                   marks: []
-              key: IHEcTY3pfG0E
-          key: Vozzrt6DJSEd
-      key: ib1EP6ihYh7l
+              key: FT60C4yiVZKW
+          key: JxkaTJTs7FZ6
+      key: qJhWu5R1mdId
     x-gitbook-description-html: <p>对话生成相关的 API，包括聊天补全和文本补全</p>
   - name: embeddings
     x-page-title: 向量嵌入
@@ -69,9 +69,9 @@ tags:
                 - object: leaf
                   text: 向量嵌入相关的 API，用于生成文本的向量表示
                   marks: []
-              key: WB4P1uQToxTE
-          key: djDA43t3qIaP
-      key: SVMuGEmBRSOO
+              key: 4jHLUMA3TIAi
+          key: 3KTGb2IOckFM
+      key: EBjb9y4tR1VL
     x-gitbook-description-html: <p>向量嵌入相关的 API，用于生成文本的向量表示</p>
   - name: image_generations
     x-page-title: 图片生成
@@ -92,9 +92,9 @@ tags:
                 - object: leaf
                   text: 图片生成相关的 API，根据文本提示生成图像
                   marks: []
-              key: k2jc4sgYrUjM
-          key: sa996Mnio2n2
-      key: HDv2kGEpzCqO
+              key: 5RSL0B3AFOco
+          key: mRq3q6ms7bxG
+      key: bWiLsgDhBW6J
     x-gitbook-description-html: <p>图片生成相关的 API，根据文本提示生成图像</p>
   - name: image_edits
     x-page-title: 图片编辑
@@ -115,9 +115,9 @@ tags:
                 - object: leaf
                   text: 图片编辑相关的 API，根据原始图像和提示创建编辑后的图像
                   marks: []
-              key: pHcfWyL1CEXC
-          key: 8bEHLbRYM6LV
-      key: SQ8aN8x6GRyA
+              key: NnDHsrnIzsgP
+          key: 5jdJYCSqB54b
+      key: HGiMvb9ChT8p
     x-gitbook-description-html: <p>图片编辑相关的 API，根据原始图像和提示创建编辑后的图像</p>
   - name: audio_transcriptions
     x-page-title: 音频转录
@@ -138,9 +138,9 @@ tags:
                 - object: leaf
                   text: 音频转录相关的 API，将音频文件转录为文本
                   marks: []
-              key: 8NfbceQXlJID
-          key: 9Ub4NPtxq08e
-      key: w8JDJ5DblmgH
+              key: Jg15AJJXLr6W
+          key: sMGz2zqWMciY
+      key: q52Vlz5fQQPx
     x-gitbook-description-html: <p>音频转录相关的 API，将音频文件转录为文本</p>
   - name: chat_completions_deepseek
     x-parent: chat_completions
@@ -162,9 +162,9 @@ tags:
                 - object: leaf
                   text: 深度求索（DeepSeek）的对话生成 API
                   marks: []
-              key: Ejv3xqExfWIk
-          key: 1bX8Y586ubIW
-      key: wgyCH6ZrMmhq
+              key: akeYSEgW1c7E
+          key: gvpqmY7w83op
+      key: b1xKRF9eey0g
     x-gitbook-description-html: <p>深度求索（DeepSeek）的对话生成 API</p>
   - name: chat_completions_zai
     x-parent: chat_completions
@@ -186,9 +186,9 @@ tags:
                 - object: leaf
                   text: 智谱（Zai）的对话生成 API
                   marks: []
-              key: FDDE6oMFGVSn
-          key: 2Z56hFoUCX4t
-      key: KA22b9YdWzrk
+              key: r6tO882Gdbuq
+          key: Yrk5BVdPGBJM
+      key: P4T9zQQRMBAm
     x-gitbook-description-html: <p>智谱（Zai）的对话生成 API</p>
   - name: chat_completions_volengine
     x-parent: chat_completions
@@ -210,9 +210,9 @@ tags:
                 - object: leaf
                   text: 字节跳动（VolEngine）的对话生成 API
                   marks: []
-              key: SjbKdp7XXI8z
-          key: RovHGkhZgGa3
-      key: gOz57iftr4Uz
+              key: YSDADUtAUrLv
+          key: V3N2RaSdHIpo
+      key: YUstEyCdRSsc
     x-gitbook-description-html: <p>字节跳动（VolEngine）的对话生成 API</p>
   - name: chat_completions_dashscope
     x-parent: chat_completions
@@ -234,9 +234,9 @@ tags:
                 - object: leaf
                   text: 阿里千问（DashScope）的对话生成 API
                   marks: []
-              key: 3tJPAcBBXet1
-          key: HpWO2mvckmGq
-      key: a8bMJRVT6zKe
+              key: T42IXmrm3gpy
+          key: dtw1wBjOJqdE
+      key: M41rr7CJYj1q
     x-gitbook-description-html: <p>阿里千问（DashScope）的对话生成 API</p>
   - name: chat_completions_openai
     x-parent: chat_completions
@@ -258,9 +258,9 @@ tags:
                 - object: leaf
                   text: OpenAI 的对话生成 API
                   marks: []
-              key: DwHlQVO9XD5B
-          key: gFfiSwKwml5D
-      key: Bc8KID1HgtLE
+              key: WLOt8rhkATZG
+          key: nra8ZxXQyjEg
+      key: wb1vvL14JfQK
     x-gitbook-description-html: <p>OpenAI 的对话生成 API</p>
   - name: chat_completions_openai_openai
     x-parent: chat_completions_openai
@@ -282,9 +282,9 @@ tags:
                 - object: leaf
                   text: 支持 OpenAI 协议的对话生成 API
                   marks: []
-              key: hZfFCuMkrT1D
-          key: 4pLBMqobGjWD
-      key: KUrg55dPirQb
+              key: SjwrKD6Q4w3S
+          key: l0vfIlpuvzjz
+      key: BnjLme6XjRfp
     x-gitbook-description-html: <p>支持 OpenAI 协议的对话生成 API</p>
   - name: chat_completions_openai_anthropic
     x-parent: chat_completions_openai
@@ -306,9 +306,9 @@ tags:
                 - object: leaf
                   text: 支持 Anthropic 协议的对话生成 API
                   marks: []
-              key: bn6Yqd8tZd32
-          key: ZB27rG91CtfZ
-      key: LxW3qqlNYBp0
+              key: UCcwG01VfSxN
+          key: oBNszTOTzQby
+      key: JRGdVgKWhPhD
     x-gitbook-description-html: <p>支持 Anthropic 协议的对话生成 API</p>
   - name: chat_completions_openai_gemini
     x-parent: chat_completions_openai
@@ -330,9 +330,9 @@ tags:
                 - object: leaf
                   text: 支持 Gemini 协议的对话生成 API
                   marks: []
-              key: XsRFLiqqw9yH
-          key: DFmcLFPq4X79
-      key: Dwyn7XZCzJjc
+              key: b6oKtRiIulYk
+          key: BgZ2Tyq77Gmi
+      key: r1f1IeaSfuT2
     x-gitbook-description-html: <p>支持 Gemini 协议的对话生成 API</p>
 paths:
   /v1/chat/completions:
@@ -467,8 +467,8 @@ paths:
                   - object: leaf
                     text: 基于输入的消息，生成模型回复。与 OpenAI 的 Chat API 完全兼容。
                     marks: []
-                key: m0PpL4vXaz6C
-            key: Y2DRg11je1y1
+                key: icpyk4mmCVTf
+            key: HCCjcOhIQhP1
           - object: block
             type: blockquote
             isVoid: false
@@ -493,10 +493,10 @@ paths:
                       - object: leaf
                         text: ：选择下方的请求示例后，请手动在响应示例区域选择同名的示例以查看对应的输出。
                         marks: []
-                    key: YND8bq8PDPdU
-                key: k3RNJbXzBiIV
-            key: S2osKRX4B6IX
-        key: SR3AlhWBzlze
+                    key: TuKgNzge2zvu
+                key: PVE822VkFoRI
+            key: Q8yCxUcK3O0q
+        key: CAKn0aCC7DZL
       x-gitbook-description-html: >-
         <p>基于输入的消息，生成模型回复。与 OpenAI 的 Chat API 完全兼容。</p><blockquote><p>💡
         <strong>提示</strong>：选择下方的请求示例后，请手动在响应示例区域选择同名的示例以查看对应的输出。</p></blockquote>
@@ -636,8 +636,8 @@ paths:
                   - object: leaf
                     text: 基于提供的提示，生成一个或多个补全结果。与 OpenAI 的 Completions API 兼容。
                     marks: []
-                key: 8n63ZjNZ2A72
-            key: 5arirELUvBY8
+                key: ELZo6wsRgca6
+            key: CAcgubX0tM54
           - object: block
             type: blockquote
             isVoid: false
@@ -662,10 +662,10 @@ paths:
                       - object: leaf
                         text: ：选择下方的请求示例后，请手动在响应示例区域选择同名的示例以查看对应的输出。
                         marks: []
-                    key: u0AjB5JBTLd2
-                key: v1MBELJG1XLE
-            key: 6w00bH4n3o46
-        key: 1Hva2KCcdoJW
+                    key: 6yHyVrwCrd6A
+                key: Mzb5jjSiU8si
+            key: Ku9ZP6H7Kn4e
+        key: tdAJSSwwm5Z3
       x-gitbook-description-html: >-
         <p>基于提供的提示，生成一个或多个补全结果。与 OpenAI 的 Completions API
         兼容。</p><blockquote><p>💡
@@ -772,9 +772,9 @@ paths:
                   - object: leaf
                     text: 获取给定输入的向量表示，可用于相似度比较等任务。与 OpenAI 的 Embeddings API 兼容。
                     marks: []
-                key: 7dFrlZCvgsf8
-            key: tF3513eDACek
-        key: l5WHiBKJUXtp
+                key: ksgYM5z803OD
+            key: hjf5DtWxPz40
+        key: lVP75VQyPskA
       x-gitbook-description-html: <p>获取给定输入的向量表示，可用于相似度比较等任务。与 OpenAI 的 Embeddings API 兼容。</p>
   /v1/images/generations:
     post:
@@ -863,8 +863,8 @@ paths:
                   - object: leaf
                     text: 根据文本提示生成图像。与 OpenAI 的 Images API (Create image) 完全兼容。
                     marks: []
-                key: qABp3fHV1ZdR
-            key: 5JlvXsdd9hAR
+                key: YlonsXUKUuUK
+            key: 4D7eeLhxL9tU
           - object: block
             type: blockquote
             isVoid: false
@@ -889,10 +889,10 @@ paths:
                       - object: leaf
                         text: ：选择下方的请求示例后，请手动在响应示例区域选择同名的示例以查看对应的输出。
                         marks: []
-                    key: zn2CXXaIJMRg
-                key: rvSMre60mllQ
-            key: C73QmN2nfNbD
-        key: ki9isO5EhezS
+                    key: ZBg4hAp0nlfv
+                key: 1IIgUBUAdBEq
+            key: bzJyM6dwiVkk
+        key: b40M7Kp8MECK
       x-gitbook-description-html: >-
         <p>根据文本提示生成图像。与 OpenAI 的 Images API (Create image)
         完全兼容。</p><blockquote><p>💡
@@ -993,8 +993,8 @@ paths:
                       根据原始图像和文本提示创建编辑后的图像。与 OpenAI 的 Images API (Create image
                       edit) 完全兼容。
                     marks: []
-                key: sS8oDGq86am1
-            key: Xy4IjLjgH9za
+                key: zjTVenUFXx8Z
+            key: qjArIsjPW5av
           - object: block
             type: blockquote
             isVoid: false
@@ -1019,9 +1019,9 @@ paths:
                       - object: leaf
                         text: ：选择下方的请求示例后，请手动在响应示例区域选择同名的示例以查看对应的输出。
                         marks: []
-                    key: k1UMi6yq3JGj
-                key: Fv3qV9wgdUZR
-            key: HaFRRcJB7ZRL
+                    key: UI7L6nTrwdDc
+                key: NHxZOWvOb52y
+            key: eaXSUQiKBBL1
           - object: block
             type: paragraph
             isVoid: false
@@ -1038,8 +1038,8 @@ paths:
                   - object: leaf
                     text: ：
                     marks: []
-                key: M5QD5jyNOF5N
-            key: Ul22yUv2jxkI
+                key: mFYbOqvXURKO
+            key: FuCfE5kJpz2E
           - object: block
             type: list-unordered
             isVoid: false
@@ -1068,9 +1068,9 @@ paths:
                               - object: mark
                                 type: code
                                 data: {}
-                        key: Lr1NnvYI55nA
-                    key: 8YPur0cIaKFu
-                key: 3jwBXFEhHbhq
+                        key: qdrxfcUFeUHh
+                    key: 5gy2Ok5lnWU1
+                key: Yf1cCdoAJqxG
               - object: block
                 type: list-item
                 isVoid: false
@@ -1095,9 +1095,9 @@ paths:
                           - object: leaf
                             text: ）
                             marks: []
-                        key: 0p4NQyDWLIKW
-                    key: hvSydQIO0Pkh
-                key: 1xvCzAyqlS2O
+                        key: 1ZuPwD9vzbRB
+                    key: 9HmzwAzSeJuw
+                key: wNcR7xbG5ykt
               - object: block
                 type: list-item
                 isVoid: false
@@ -1122,10 +1122,10 @@ paths:
                           - object: leaf
                             text: ）
                             marks: []
-                        key: z2hWBPjSu7OB
-                    key: V5fS4aZyCS9K
-                key: oCvWzJuff4Q5
-            key: A3lcPgp4E2Dp
+                        key: w2QvtJgrYTA9
+                    key: Vh37mGPy0LgE
+                key: Caq28nSs4oBo
+            key: GXnrCq1lz9MB
           - object: block
             type: paragraph
             isVoid: false
@@ -1136,9 +1136,9 @@ paths:
                   - object: leaf
                     text: 最大文件大小：20 MB，图像需为正方形 PNG 格式。
                     marks: []
-                key: 2NL4TJWWtc2X
-            key: tJKUNdAUh3l3
-        key: IKA0VGPcohMw
+                key: 8oed9AQ6DYKI
+            key: ppbz0Sjhy94s
+        key: avAkCjR0avoa
       x-gitbook-description-html: >-
         <p>根据原始图像和文本提示创建编辑后的图像。与 OpenAI 的 Images API (Create image edit)
         完全兼容。</p><blockquote><p>💡
@@ -1209,9 +1209,9 @@ paths:
                       将音频文件转录为文本。与 OpenAI 的 Audio API (Create transcription)
                       完全兼容。
                     marks: []
-                key: MVqEAncelazy
-            key: QbQMP1dbqf2t
-        key: mxz78pkfQkj1
+                key: viX9grcDGznq
+            key: kvgTcL8DaWoZ
+        key: C9B8g9ecbRQH
       x-gitbook-description-html: <p>将音频文件转录为文本。与 OpenAI 的 Audio API (Create transcription) 完全兼容。</p>
 components:
   schemas:
