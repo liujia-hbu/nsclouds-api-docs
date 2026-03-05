@@ -4,8 +4,8 @@
 
 * ```yaml
   props:
-    models: true
-    downloadLink: true
+    models: false
+    downloadLink: false
   type: builtin:openapi
   dependencies:
     spec:
