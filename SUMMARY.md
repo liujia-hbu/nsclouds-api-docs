@@ -17,7 +17,17 @@
 
 ### deepseek
 * [OpenAI 协议](docs/chat.completions/deepseek/openai/README.md)
-* [OpenAI 协议 API 文档](docs/chat.completions/deepseek/openai/openapi.yaml)
+* ```yaml
+  props:
+    models: true
+    downloadLink: true
+  type: builtin:openapi
+  dependencies:
+    spec:
+      ref:
+        kind: openapi
+        spec: docs/chat.completions/deepseek/openai/openapi.yaml
+  ```
 * [Anthropic 协议](docs/chat.completions/deepseek/Anthropic/README.md)
 * [Gemini 协议](docs/chat.completions/deepseek/Gemini/README.md)
 
@@ -38,7 +48,17 @@
 
 ### openai
 * [OpenAI 协议](docs/chat.completions/openai/openai/README.md)
-* [OpenAI 协议 API 文档](docs/chat.completions/openai/openai/openapi.yaml)
+* ```yaml
+  props:
+    models: true
+    downloadLink: true
+  type: builtin:openapi
+  dependencies:
+    spec:
+      ref:
+        kind: openapi
+        spec: docs/chat.completions/openai/openai/openapi.yaml
+  ```
 * [Anthropic 协议](docs/chat.completions/openai/Anthropic/README.md)
 * [Gemini 协议](docs/chat.completions/openai/Gemini/README.md)
 
@@ -66,7 +86,17 @@
 
 ### openai
 * [OpenAI 协议](docs/embeddings/openai/openai/README.md)
-* [OpenAI 协议 API 文档](docs/embeddings/openai/openai/openapi.yaml)
+* ```yaml
+  props:
+    models: true
+    downloadLink: true
+  type: builtin:openapi
+  dependencies:
+    spec:
+      ref:
+        kind: openapi
+        spec: docs/embeddings/openai/openai/openapi.yaml
+  ```
 * [Anthropic 协议](docs/embeddings/openai/Anthropic/README.md)
 * [Gemini 协议](docs/embeddings/openai/Gemini/README.md)
 
@@ -94,7 +124,17 @@
 
 ### openai
 * [OpenAI 协议](docs/image.generations/openai/openai/README.md)
-* [OpenAI 协议 API 文档](docs/image.generations/openai/openai/openapi.yaml)
+* ```yaml
+  props:
+    models: true
+    downloadLink: true
+  type: builtin:openapi
+  dependencies:
+    spec:
+      ref:
+        kind: openapi
+        spec: docs/image.generations/openai/openai/openapi.yaml
+  ```
 * [Anthropic 协议](docs/image.generations/openai/Anthropic/README.md)
 * [Gemini 协议](docs/image.generations/openai/Gemini/README.md)
 
@@ -122,7 +162,17 @@
 
 ### openai
 * [OpenAI 协议](docs/image.edits/openai/openai/README.md)
-* [OpenAI 协议 API 文档](docs/image.edits/openai/openai/openapi.yaml)
+* ```yaml
+  props:
+    models: true
+    downloadLink: true
+  type: builtin:openapi
+  dependencies:
+    spec:
+      ref:
+        kind: openapi
+        spec: docs/image.edits/openai/openai/openapi.yaml
+  ```
 * [Anthropic 协议](docs/image.edits/openai/Anthropic/README.md)
 * [Gemini 协议](docs/image.edits/openai/Gemini/README.md)
 
@@ -150,7 +200,17 @@
 
 ### openai
 * [OpenAI 协议](docs/audio.transcriptions/openai/openai/README.md)
-* [OpenAI 协议 API 文档](docs/audio.transcriptions/openai/openai/openapi.yaml)
+* ```yaml
+  props:
+    models: true
+    downloadLink: true
+  type: builtin:openapi
+  dependencies:
+    spec:
+      ref:
+        kind: openapi
+        spec: docs/audio.transcriptions/openai/openai/openapi.yaml
+  ```
 * [Anthropic 协议](docs/audio.transcriptions/openai/Anthropic/README.md)
 * [Gemini 协议](docs/audio.transcriptions/openai/Gemini/README.md)
 
