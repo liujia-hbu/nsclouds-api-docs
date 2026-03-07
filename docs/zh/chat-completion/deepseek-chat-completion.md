@@ -17,9 +17,9 @@
 ### 2.接口详情
 
 {% openapi-operation spec="deepseek" path="/v1/chat/completions" method="post" %}
-[OpenAPI deepseek](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/refs/heads/main/docs/bundled/zh/deepseek.bundled.yaml)
+[OpenAPI deepseek](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/deepseek.bundled.yaml)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="deepseek" path="/v1/completions" method="post" %}
-[OpenAPI deepseek](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/refs/heads/main/docs/bundled/zh/deepseek.bundled.yaml)
+[OpenAPI deepseek](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/deepseek.bundled.yaml)
 {% endopenapi-operation %}
