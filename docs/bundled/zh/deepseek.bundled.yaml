@@ -82,6 +82,41 @@ paths:
               "max_completion_tokens": 50,
               "temperature": 1
             }
+        - lang: http
+          label: HTTP Stream
+          source: |
+            POST /v1/chat/completions HTTP/1.1
+            Host: aillm.sinocache.net
+            Content-Type: application/json
+            Authorization: Bearer your-api-key
+
+            {
+              "model": "deepseek-v3.1",
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hello!"
+                }
+              ],
+              "max_completion_tokens": 50,
+              "temperature": 1,
+              "stream": true
+            }
+
+            # 响应示例（流式）:
+            # data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"deepseek-v3.1","choices":[{"index":0,"delta":{"role":"assistant","content":"Hello"},"finish_reason":null}]}
+            # 
+            # data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"deepseek-v3.1","choices":[{"index":0,"delta":{"content":"! How"},"finish_reason":null}]}
+            # 
+            # data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"deepseek-v3.1","choices":[{"index":0,"delta":{"content":" can I"},"finish_reason":null}]}
+            # 
+            # data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"deepseek-v3.1","choices":[{"index":0,"delta":{"content":" help you"},"finish_reason":null}]}
+            # 
+            # data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"deepseek-v3.1","choices":[{"index":0,"delta":{"content":" today?"},"finish_reason":null}]}
+            # 
+            # data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1694268190,"model":"deepseek-v3.1","choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}
+            # 
+            # data: [DONE]
         - lang: bash
           label: curl
           source: |
