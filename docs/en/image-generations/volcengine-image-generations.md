@@ -5,29 +5,29 @@ metaLinks:
       https://app.gitbook.com/s/x8h0Gte093KpUAW4Bcpp/image-generations/volcengine-image-generations
 ---
 
-# 字节豆包(volcengine)
+# ByteDance Doubao (volcengine)
 
-### 1. 概述
+### 1. Overview
 
-字节跳动推出的图像生成 API，与 OpenAI 接口格式兼容。
+The image generation API launched by ByteDance, compatible with OpenAI interface format.
 
 {% hint style="success" %}
-本 API 与 OpenAI 接口格式兼容。
+This API is compatible with OpenAI interface format.
 {% endhint %}
 
-**模型列表：**
+**Model List:**
 
 * `volcengine/doubao-seedream-4-5-251128`
 * `volcengine/doubao-seedream-4-0-250828`
 
-### 功能验证说明
+### Feature Verification
 
-| 功能   | 状态    | 说明 |
+| Feature | Status | Description |
 | ---- | ----- | -- |
-| 基础请求 | ⏳ 待验证 | 支持 |
+| Basic Request | ⏳ Pending Verification | Supported |
 
-### 2. 接口详情
+### 2. API Details
 
-{% openapi-operation spec="volcengine" path="/v1/images/generations" method="post" %}
-[OpenAPI volcengine](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/volcengine.bundled.yaml)
+{% openapi-operation spec="volcengine_en" path="/v1/images/generations" method="post" %}
+[OpenAPI volcengine](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/en/volcengine.bundled.yaml)
 {% endopenapi-operation %}

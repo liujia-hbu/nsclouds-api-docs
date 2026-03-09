@@ -7,28 +7,28 @@ metaLinks:
 
 # OpenAI
 
-### 1. 概述
+### 1. Overview
 
-OpenAI 的向量嵌入 API，与 OpenAI 接口格式兼容。
+OpenAI's vector embeddings API, compatible with OpenAI interface format.
 
 {% hint style="success" %}
-本 API 与 OpenAI 接口格式兼容。
+This API is compatible with OpenAI interface format.
 {% endhint %}
 
-**模型列表：**
+**Model List:**
 
 * `text-embedding-ada-002`
 * `text-embedding-3-small`
 * `text-embedding-3-large`
 
-### 功能验证说明
+### Feature Verification
 
-| 功能   | 状态    | 说明 |
+| Feature | Status | Description |
 | ---- | ----- | -- |
-| 基础请求 | ✅ 已验证 | 支持 |
+| Basic Request | ✅ Verified | Supported |
 
-### 2. 接口详情
+### 2. API Details
 
-{% openapi-operation spec="openai" path="/v1/embeddings" method="post" %}
-[OpenAPI openai](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/openai.bundled.yaml)
+{% openapi-operation spec="openai_en" path="/v1/embeddings" method="post" %}
+[OpenAPI openai](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/en/openai.bundled.yaml)
 {% endopenapi-operation %}

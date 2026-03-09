@@ -4,12 +4,12 @@ metaLinks:
     - https://app.gitbook.com/s/x8h0Gte093KpUAW4Bcpp/embeddings
 ---
 
-# 向量嵌入(embeddings)
+# Vector Embeddings
 
-向量嵌入 API 允许您将文本转换为向量表示，适用于语义搜索、聚类等场景。
+The vector embeddings API allows you to convert text into vector representations, suitable for scenarios such as semantic search, clustering, etc.
 
-## 支持的厂家
+## Supported Vendors
 
-* [深度求索(DeepSeek)](deepseek-embeddings.md)
-* [字节豆包(volcengine)](volcengine-embeddings.md)
-* [OpenAI](openai-embeddings.md)
+- [DeepSeek](deepseek-embeddings.md)
+- [ByteDance Doubao (volcengine)](volcengine-embeddings.md)
+- [OpenAI](openai-embeddings.md)

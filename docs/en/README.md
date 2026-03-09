@@ -4,8 +4,8 @@ metaLinks:
     - https://app.gitbook.com/s/x8h0Gte093KpUAW4Bcpp/
 ---
 
-# 简介
+# Introduction
 
-**NewStream AI 网关** 通过统一的 API 接口，集成了主流 AI 能力，包括对话生成、图像生成与处理、音频处理、向量嵌入等，帮助开发者高效接入多种 AI 服务，简化多源 API 的集成复杂度，显著提升开发与部署效率。所有接口均采用标准化设计，灵活适配多种业务场景，尤其适用于边缘智能与实时内容处理等需求。
+**NewStream AI Gateway** integrates mainstream AI capabilities through a unified API interface, including chat completion, image generation and processing, audio processing, and vector embeddings. It helps developers efficiently access multiple AI services, simplifies the complexity of integrating multi-source APIs, and significantly improves development and deployment efficiency. All interfaces adopt standardized design, flexibly adapting to various business scenarios, especially suitable for edge intelligence and real-time content processing needs.
 
-如需申请开通权限或获取技术支持，请联系 NewStream 客户支持团队：[dev@ngaa.com.cn](mailto:dev@ngaa.com.cn).
+For permission application or technical support, please contact NewStream customer support team: [dev@ngaa.com.cn](mailto:dev@ngaa.com.cn).

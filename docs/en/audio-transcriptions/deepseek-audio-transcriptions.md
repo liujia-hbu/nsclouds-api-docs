@@ -5,28 +5,28 @@ metaLinks:
       https://app.gitbook.com/s/x8h0Gte093KpUAW4Bcpp/audio-transcriptions/deepseek-audio-transcriptions
 ---
 
-# 深度求索(DeepSeek)
+# DeepSeek
 
-### 1. 概述
+### 1. Overview
 
-深度求索推出的音频转录 API，与 OpenAI 接口格式兼容。
+The audio transcription API launched by DeepSeek, compatible with OpenAI interface format.
 
 {% hint style="success" %}
-本 API 与 OpenAI 接口格式兼容。
+This API is compatible with OpenAI interface format.
 {% endhint %}
 
-**模型列表：**
+**Model List:**
 
 * `deepseek-audio-transcription`
 
-### 功能验证说明
+### Feature Verification
 
-| 功能   | 状态    | 说明 |
+| Feature | Status | Description |
 | ---- | ----- | -- |
-| 基础请求 | ⏳ 待验证 | 支持 |
+| Basic Request | ⏳ Pending Verification | Supported |
 
-### 2. 接口详情
+### 2. API Details
 
-{% openapi-operation spec="deepseek" path="/v1/audio/transcriptions" method="post" %}
-[OpenAPI deepseek](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/deepseek.bundled.yaml)
+{% openapi-operation spec="deepseek_en" path="/v1/audio/transcriptions" method="post" %}
+[OpenAPI deepseek](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/en/deepseek.bundled.yaml)
 {% endopenapi-operation %}

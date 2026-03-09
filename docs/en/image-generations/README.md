@@ -4,12 +4,12 @@ metaLinks:
     - https://app.gitbook.com/s/x8h0Gte093KpUAW4Bcpp/image-generations
 ---
 
-# 图像生成(image generations)
+# Image Generation
 
-图像生成 API 允许您根据文本提示生成图像。
+The image generation API allows you to generate images based on text prompts.
 
-## 支持的厂家
+## Supported Vendors
 
-* [深度求索(DeepSeek)](deepseek-image-generations.md)
-* [字节豆包(volcengine)](volcengine-image-generations.md)
-* [OpenAI](openai-image-generations.md)
+- [DeepSeek](deepseek-image-generations.md)
+- [ByteDance Doubao (volcengine)](volcengine-image-generations.md)
+- [OpenAI](openai-image-generations.md)

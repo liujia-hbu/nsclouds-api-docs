@@ -5,31 +5,31 @@ metaLinks:
       https://app.gitbook.com/s/x8h0Gte093KpUAW4Bcpp/completions/volcengine-completions
 ---
 
-# 字节豆包(volcengine)
+# ByteDance Doubao (volcengine)
 
-### 1. 概述
+### 1. Overview
 
-字节跳动推出的文本补全 API，与 OpenAI 接口格式兼容。
+The text completion API launched by ByteDance, compatible with OpenAI interface format.
 
 {% hint style="success" %}
-本 API 与 OpenAI 接口格式兼容。
+This API is compatible with OpenAI interface format.
 {% endhint %}
 
-**模型列表：**
+**Model List:**
 
 * `volcengine/doubao-seed-1-8-251228`
 * `volcengine/doubao-seed-1-6-251015`
 * `volcengine/doubao-seed-1-6-lite-251015`
 
-### 功能验证说明
+### Feature Verification
 
-| 功能   | 状态    | 说明 |
+| Feature | Status | Description |
 | ---- | ----- | -- |
-| 基础请求 | ✅ 已验证 | 支持 |
-| 流式响应 | ✅ 已验证 | 支持 |
+| Basic Request | ✅ Verified | Supported |
+| Streaming Response | ✅ Verified | Supported |
 
-### 2. 接口详情
+### 2. API Details
 
-{% openapi-operation spec="volcengine" path="/v1/completions" method="post" %}
-[OpenAPI volcengine](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/volcengine.bundled.yaml)
+{% openapi-operation spec="volcengine_en" path="/v1/completions" method="post" %}
+[OpenAPI volcengine](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/en/volcengine.bundled.yaml)
 {% endopenapi-operation %}

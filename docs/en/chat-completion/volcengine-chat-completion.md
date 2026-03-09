@@ -5,33 +5,33 @@ metaLinks:
       https://app.gitbook.com/s/x8h0Gte093KpUAW4Bcpp/chat-completion/volcengine-chat-completion
 ---
 
-# 字节豆包(volcengine)
+# ByteDance Doubao (volcengine)
 
-### 1. 概述
+### 1. Overview
 
-字节跳动推出的智能对话大模型，支持多模态交互、函数调用等高级功能。
+ByteDance's intelligent dialogue large model, supporting advanced features such as multimodal interaction and function calling.
 
 {% hint style="success" %}
-本 API 与 OpenAI 接口格式兼容。
+This API is compatible with OpenAI interface format.
 {% endhint %}
 
-**模型列表：**
+**Model List:**
 
-* `volcengine/doubao-seed-1-8-251228`（推荐，支持多模态、函数调用）
+* `volcengine/doubao-seed-1-8-251228` (Recommended, supports multimodal, function calling)
 * `volcengine/doubao-seed-1-6-251015`
 * `volcengine/doubao-seed-1-6-lite-251015`
 
-### 功能验证说明
+### Feature Verification
 
-| 功能   | 状态    | 说明                                     |
+| Feature | Status | Description |
 | ---- | ----- | -------------------------------------- |
-| 基础请求 | ✅ 已验证 | 支持                                     |
-| 流式响应 | ✅ 已验证 | 支持                                     |
-| 图像输入 | ✅ 已验证 | `volcengine/doubao-seed-1-8-251228` 支持 |
-| 函数调用 | ✅ 已验证 | 支持                                     |
+| Basic Request | ✅ Verified | Supported |
+| Streaming Response | ✅ Verified | Supported |
+| Image Input | ✅ Verified | `volcengine/doubao-seed-1-8-251228` supported |
+| Function Call | ✅ Verified | Supported |
 
-### 2.接口详情
+### 2. API Details
 
-{% openapi-operation spec="volcengine" path="/v1/chat/completions" method="post" %}
-[OpenAPI volcengine](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/volcengine.bundled.yaml)
+{% openapi-operation spec="volcengine_en" path="/v1/chat/completions" method="post" %}
+[OpenAPI volcengine](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/en/volcengine.bundled.yaml)
 {% endopenapi-operation %}

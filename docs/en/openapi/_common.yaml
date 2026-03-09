@@ -1,0 +1,435 @@
+openapi: 3.1.0
+info:
+  title: LiteLLM API Documentation
+  description: Self-hosted LiteLLM gateway API documentation, fully compatible with OpenAI format.
+  version: 1.11.0
+servers:
+  - url: https://aillm.sinocache.net
+    description: LiteLLM Gateway Server
+
+tags:
+  # Top-level feature tags (as parent tags for vendor tags)
+  - name: chat_completions
+    x-page-title: Chat Completions
+    x-page-icon: message
+    description: Chat completion related APIs, including chat completions and text completions
+  - name: embeddings
+    x-page-title: Embeddings
+    x-page-icon: database
+    description: Embedding related APIs for generating vector representations of text
+  - name: image_generations
+    x-page-title: Image Generations
+    x-page-icon: image
+    description: Image generation related APIs for creating images from text prompts
+  - name: image_edits
+    x-page-title: Image Edits
+    x-page-icon: edit
+    description: Image editing related APIs for creating edited images from original images and prompts
+  - name: audio_transcriptions
+    x-page-title: Audio Transcriptions
+    x-page-icon: microphone
+    description: Audio transcription related APIs for transcribing audio files to text
+
+components:
+  schemas:
+    # Chat completion related schemas
+    CreateChatCompletionRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: The model ID to use
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+                enum:
+                  - system
+                  - user
+                  - assistant
+                  - tool
+              content:
+                oneOf:
+                  - type: string
+                  - type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            type:
+                              type: string
+                              enum:
+                                - text
+                            text:
+                              type: string
+                          required:
+                            - type
+                            - text
+                        - type: object
+                          properties:
+                            type:
+                              type: string
+                              enum:
+                                - image_url
+                            image_url:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                              required:
+                                - url
+                          required:
+                            - type
+                            - image_url
+            required:
+              - role
+              - content
+        temperature:
+          type: number
+          default: 1
+        max_completion_tokens:
+          type: integer
+        n:
+          type: integer
+          default: 1
+        stream:
+          type: boolean
+          default: false
+      required:
+        - model
+        - messages
+    
+    ChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        created:
+          type: integer
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                  content:
+                    type:
+                      - string
+                      - 'null'
+              finish_reason:
+                type:
+                  - string
+                  - 'null'
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            completion_tokens:
+              type: integer
+            total_tokens:
+              type: integer
+    
+    CreateCompletionRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: The model ID to use
+        prompt:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+        temperature:
+          type: number
+          default: 1
+        max_tokens:
+          type: integer
+        n:
+          type: integer
+          default: 1
+        stream:
+          type: boolean
+          default: false
+      required:
+        - model
+        - prompt
+    
+    CompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        created:
+          type: integer
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              index:
+                type: integer
+              finish_reason:
+                type:
+                  - string
+                  - 'null'
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            completion_tokens:
+              type: integer
+            total_tokens:
+              type: integer
+    
+    # Embedding related schemas
+    CreateEmbeddingRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: The model ID to use
+        input:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+        encoding_format:
+          type: string
+          enum:
+            - float
+            - base64
+          default: float
+        dimensions:
+          type: integer
+      required:
+        - model
+        - input
+    
+    EmbeddingResponse:
+      type: object
+      properties:
+        object:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              object:
+                type: string
+              embedding:
+                oneOf:
+                  - type: array
+                    items:
+                      type: number
+                  - type: string
+              index:
+                type: integer
+        model:
+          type: string
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            total_tokens:
+              type: integer
+    
+    # Image processing related schemas
+    CreateImageGenerationRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: The model ID to use
+        prompt:
+          type: string
+          description: Text prompt for image generation
+        n:
+          type: integer
+          default: 1
+        size:
+          type: string
+          default: 1024x1024
+        quality:
+          type: string
+          enum:
+            - standard
+            - hd
+          default: standard
+        response_format:
+          type: string
+          enum:
+            - url
+            - b64_json
+          default: url
+      required:
+        - model
+        - prompt
+    
+    CreateImageEditRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: The model ID to use
+        image[]:
+          type: array
+          items:
+            type: string
+            format: binary
+          description: Image file to edit
+        mask:
+          type: string
+          format: binary
+          description: Optional mask file
+        prompt:
+          type: string
+          description: Text prompt for image editing
+        n:
+          type: integer
+          default: 1
+        size:
+          type: string
+          default: 1024x1024
+        response_format:
+          type: string
+          enum:
+            - url
+            - b64_json
+          default: url
+      required:
+        - model
+        - image[]
+        - prompt
+    
+    ImageResponse:
+      type: object
+      properties:
+        created:
+          type: integer
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+              b64_json:
+                type: string
+              revised_prompt:
+                type: string
+        background:
+          type: string
+        output_format:
+          type: string
+        quality:
+          type: string
+        size:
+          type: string
+        usage:
+          type: object
+          properties:
+            total_tokens:
+              type: integer
+            input_tokens:
+              type: integer
+            output_tokens:
+              type: integer
+    
+    # Audio transcription related schemas
+    CreateTranscriptionRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: The model ID to use
+        file:
+          type: string
+          format: binary
+          description: Audio file to transcribe
+        language:
+          type: string
+          description: Language code for the audio (optional)
+        prompt:
+          type: string
+          description: Optional prompt to guide the model's style or content
+        response_format:
+          type: string
+          enum:
+            - json
+            - text
+            - srt
+            - verbose_json
+            - vtt
+          default: json
+        temperature:
+          type: number
+          default: 0
+      required:
+        - model
+        - file
+    
+    TranscriptionResponse:
+      type: object
+      properties:
+        text:
+          type: string
+    
+    # Common schemas
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            param:
+              type:
+                - string
+                - 'null'
+            code:
+              type:
+                - string
+                - 'null'
+  
+  securitySchemes:
+    APIKeyHeader:
+      type: http
+      scheme: bearer
+      description: "Authenticate using Bearer token format: 'Bearer YOUR_SECRET_TOKEN'"
+
+  responses:
+    ErrorResponse:
+      description: Error response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
