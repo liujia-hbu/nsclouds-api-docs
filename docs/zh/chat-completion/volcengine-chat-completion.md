@@ -36,15 +36,3 @@
 {% openapi-operation spec="volcengine" path="/v1/chat/completions" method="post" %}
 [OpenAPI volcengine](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/volcengine.bundled.yaml)
 {% endopenapi-operation %}
-
-{% openapi-operation spec="volcengine" path="/v1/completions" method="post" %}
-[OpenAPI volcengine](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/volcengine.bundled.yaml)
-{% endopenapi-operation %}
-
-{% openapi-operation spec="volcengine" path="/v1/embeddings" method="post" %}
-[OpenAPI volcengine](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/volcengine.bundled.yaml)
-{% endopenapi-operation %}
-
-{% openapi-operation spec="volcengine" path="/v1/images/generations" method="post" %}
-[OpenAPI volcengine](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/zh/volcengine.bundled.yaml)
-{% endopenapi-operation %}
