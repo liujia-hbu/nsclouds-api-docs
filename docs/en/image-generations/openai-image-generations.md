@@ -17,14 +17,13 @@ This API is compatible with OpenAI interface format.
 
 **Model List:**
 
-* `dall-e-3`
-* `dall-e-2`
+* `gpt-image-1` (image_generation mode)
 
 ### Feature Verification
 
 | Feature | Status | Description |
 | ---- | ----- | -- |
-| Basic Request | ✅ Verified | Supported |
+| Basic Request | ⚠️ Server Error | Returns 500 error (watermark parameter issue) |
 
 ### 2. API Details
 

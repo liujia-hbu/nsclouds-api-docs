@@ -17,14 +17,13 @@ This API is compatible with OpenAI interface format.
 
 **Model List:**
 
-* `whisper-1`
-* `whisper-large-v3`
+(None)
 
 ### Feature Verification
 
 | Feature | Status | Description |
 | ---- | ----- | -- |
-| Basic Request | ✅ Verified | Supported |
+| Basic Request | ❌ Unavailable | No OpenAI audio_transcription mode models in model_info |
 
 ### 2. API Details
 

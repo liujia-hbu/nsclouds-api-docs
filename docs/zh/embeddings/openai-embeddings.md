@@ -10,15 +10,13 @@ OpenAI 的向量嵌入 API，与 OpenAI 接口格式兼容。
 
 **模型列表：**
 
-* `text-embedding-ada-002`
-* `text-embedding-3-small`
-* `text-embedding-3-large`
+（暂无）
 
 ### 功能验证说明
 
 | 功能 | 状态 | 说明 |
 |------|------|------|
-| 基础请求 | ✅ 已验证 | 支持 |
+| 基础请求 | ❌ 不可用 | model_info 中无 OpenAI embedding 模式模型 |
 
 ### 2. 接口详情
 

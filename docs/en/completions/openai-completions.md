@@ -17,14 +17,15 @@ This API is compatible with OpenAI interface format.
 
 **Model List:**
 
-* `gpt-3.5-turbo-instruct`
+* `gpt-5` (chat mode, supports completion)
+* `gpt-5.2` (chat mode, supports completion)
 
 ### Feature Verification
 
 | Feature | Status | Description |
 | ---- | ----- | -- |
-| Basic Request | ✅ Verified | Supported |
-| Streaming Response | ✅ Verified | Supported |
+| Basic Request | ✅ Verified | /v1/completions verified |
+| Streaming Response | ❌ Not Verified | - |
 
 ### 2. API Details
 

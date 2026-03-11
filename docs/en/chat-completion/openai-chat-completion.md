@@ -17,9 +17,19 @@ This API is compatible with OpenAI interface format.
 
 **Model List:**
 
-* `gpt-4`
-* `gpt-4-turbo`
-* `gpt-3.5-turbo`
+* `gpt-5` (chat mode)
+* `gpt-5.2` (chat mode)
+* `gpt-5.4` (chat mode)
+* `gpt-5.3-codex` (chat mode)
+
+### Feature Verification
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| Basic Request | ✅ Verified | gpt-5, gpt-5.2 available |
+| Streaming | ✅ Verified | Test successful, returns streaming data |
+| Image Input | ✅ Verified | gpt-5.2 supports multimodal image input |
+| Function Calling | ⚠️ Partial | Model recognizes function call request but doesn't execute actual call |
 
 ### 2. API Details
 

@@ -17,15 +17,13 @@ This API is compatible with OpenAI interface format.
 
 **Model List:**
 
-* `text-embedding-ada-002`
-* `text-embedding-3-small`
-* `text-embedding-3-large`
+(None)
 
 ### Feature Verification
 
 | Feature | Status | Description |
 | ---- | ----- | -- |
-| Basic Request | ✅ Verified | Supported |
+| Basic Request | ❌ Unavailable | No OpenAI embedding mode models in model_info |
 
 ### 2. API Details
 

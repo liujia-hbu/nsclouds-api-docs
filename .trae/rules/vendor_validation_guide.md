@@ -1,17 +1,17 @@
 # 厂家 API 验证规范
 
-本文档描述了验证和更新厂家 API 文档的完整流程，以 DeepSeek 验证过程为参考。
+本文档描述了验证和更新厂家 API 文档的完整流程，以确保 API 文档的准确性和完整性。
 
-## 前提条件
+## 1. 前提条件
 
 - 已有基础 OpenAPI 文件：`docs/zh/openapi/example.yaml`
 - 已创建厂家特定文件：`docs/zh/openapi/{vendor}.yaml`
 - 测试环境地址已配置
 - API Key 已设置到环境变量 `$NGAA_LLM_API_KEY`
 
-## 验证流程
+## 2. 验证流程
 
-### 1. 获取模型信息
+### 2.1 获取模型信息
 
 使用 `/v1/model/info` 接口获取所有模型信息：
 
@@ -20,37 +20,53 @@ curl -X GET "https://devaillm.nscloud.ai/v1/model/info" \
   -H "Authorization: Bearer $NGAA_LLM_API_KEY"
 ```
 
-保存响应到 `test_openapi/model_info.json`：
+保存响应到 `test_openapi/model_info.json` 并直接 JSON 格式化：
 
 ```bash
 curl -X GET "https://devaillm.nscloud.ai/v1/model/info" \
   -H "Authorization: Bearer $NGAA_LLM_API_KEY" \
-  -o test_openapi/model_info.json
+  | jq '.' > test_openapi/model_info.json
 ```
 
-提取目标厂家模型：
+查看格式化后的 model_info：
 
 ```bash
-cat test_openapi/model_info.json | python3 -c "import json,sys; data=json.load(sys.stdin); models=[d['model_name'] for d in data['data'] if '{vendor}' in d['model_name'].lower() and '/' not in d['model_name']]; print('\n'.join(models))"
+cat test_openapi/model_info.json
 ```
 
-### 2. 验证端点功能
+提取目标厂家模型（基于 original_provider 字段）：
 
-根据模型的 `mode` 字段验证对应端点。从 `model_info.json` 中提取模型的 `mode` 字段，确定需要验证的端点：
-
-**提取模型及其 mode：**
 ```bash
-cat test_openapi/model_info.json | python3 -c "import json,sys; data=json.load(sys.stdin); models=[(d['model_name'], d.get('mode','')) for d in data['data'] if '{vendor}' in d['model_name'].lower() and '/' not in d['model_name']]; print('\n'.join([f'{m[0]}: {m[1]}' for m in models]))"
+cat test_openapi/model_info.json | jq -r '.data[] | select(.model_info.original_provider | ascii_downcase | contains("{vendor}")) | .model_name'
 ```
 
-常见 mode 类型及对应端点：
-- `chat` → `/v1/chat/completions` 和 `/v1/completions`（两者都需要验证）
-- `completion` → `/v1/completions`  
-- `embedding` → `/v1/embeddings`
-- `image_generation` → `/v1/images/generations`
-- `audio_transcription` → `/v1/audio/transcriptions`
+### 2.2 分析模型类型
 
-#### 2.1 Chat 模式验证 `/v1/chat/completions`
+根据模型的 `mode` 字段确定需要验证的端点：
+
+**提取模型及其 mode（基于 original_provider 字段）：**
+
+```bash
+cat test_openapi/model_info.json | jq -r '.data[] | select(.model_info.original_provider | ascii_downcase | contains("{vendor}")) | "\(.model_name): \(.model_info.mode // \"\")"'
+```
+
+**常见 mode 类型及对应端点：**
+
+| 模式 | 对应端点 | 验证要求 |
+|------|----------|----------|
+| `chat` | `/v1/chat/completions` 和 `/v1/completions` | 两者都需要验证 |
+| `completion` | `/v1/completions` | 仅验证该端点 |
+| `embedding` | `/v1/embeddings` | 仅验证该端点 |
+| `image_generation` | `/v1/images/generations` 和 `/v1/images/edits` | 两者都需要验证 |
+| `audio_transcription` | `/v1/audio/transcriptions` | 仅验证该端点 |
+
+### 2.3 测试建议
+
+对于 `chat` 模式的基础模型，建议使用简单的测试问题，如 "Hello!"，而不是复杂的问题或流式请求，以确保基础功能正常工作。
+
+### 2.4 验证端点功能
+
+#### 2.4.1 Chat 模式验证 `/v1/chat/completions`
 
 **基础请求测试：**
 
@@ -120,27 +136,23 @@ curl -X POST "https://devaillm.nscloud.ai/v1/chat/completions" \
   -d '{
     "model": "{model_name}",
     "messages": [
-      {"role": "user", "content": "What is the weather in Boston?"}
+      {"role": "user", "content": "Read the content of the file report.txt"}
     ],
     "tools": [
       {
         "type": "function",
         "function": {
-          "name": "get_current_weather",
-          "description": "Get the current weather in a given location",
+          "name": "read_file",
+          "description": "Read the content of a file",
           "parameters": {
             "type": "object",
             "properties": {
-              "location": {
+              "file_path": {
                 "type": "string",
-                "description": "The city and state, e.g. San Francisco, CA"
-              },
-              "unit": {
-                "type": "string",
-                "enum": ["celsius", "fahrenheit"]
+                "description": "The path to the file to read"
               }
             },
-            "required": ["location"]
+            "required": ["file_path"]
           }
         }
       }
@@ -150,7 +162,7 @@ curl -X POST "https://devaillm.nscloud.ai/v1/chat/completions" \
   }'
 ```
 
-#### 2.2 Completion 模式验证 `/v1/completions`
+#### 2.4.2 Completion 模式验证 `/v1/completions`
 
 ```bash
 curl -X POST "https://devaillm.nscloud.ai/v1/completions" \
@@ -164,7 +176,7 @@ curl -X POST "https://devaillm.nscloud.ai/v1/completions" \
   }'
 ```
 
-#### 2.3 Embedding 模式验证 `/v1/embeddings`
+#### 2.4.3 Embedding 模式验证 `/v1/embeddings`
 
 ```bash
 curl -X POST "https://devaillm.nscloud.ai/v1/embeddings" \
@@ -176,7 +188,7 @@ curl -X POST "https://devaillm.nscloud.ai/v1/embeddings" \
   }'
 ```
 
-#### 2.4 Image Generation 模式验证 `/v1/images/generations`
+#### 2.4.4 Image Generation 模式验证 `/v1/images/generations`
 
 ```bash
 curl -X POST "https://devaillm.nscloud.ai/v1/images/generations" \
@@ -190,7 +202,7 @@ curl -X POST "https://devaillm.nscloud.ai/v1/images/generations" \
   }'
 ```
 
-#### 2.5 Audio Transcription 模式验证 `/v1/audio/transcriptions`
+#### 2.4.5 Audio Transcription 模式验证 `/v1/audio/transcriptions`
 
 ```bash
 curl -X POST "https://devaillm.nscloud.ai/v1/audio/transcriptions" \
@@ -199,7 +211,7 @@ curl -X POST "https://devaillm.nscloud.ai/v1/audio/transcriptions" \
   -F "file=@/path/to/audio.mp3"
 ```
 
-### 3. 记录测试结果
+### 2.5 记录测试结果
 
 将所有测试命令和响应结果记录到 `test_openapi/test_{vendor}.md`，格式如下：
 
@@ -296,9 +308,42 @@ curl -X POST "https://devaillm.nscloud.ai/v1/audio/transcriptions" \
    - 列出不支持的端点
 ```
 
-### 4. 更新 API 文档
+## 3. 更新 API 文档
 
-#### 4.1 更新 `{vendor}.yaml` 中的 examples
+### 3.1 更新 Markdown 文档中的模型列表
+
+根据从 `/v1/model/info` 获取的模型信息，更新对应厂家在功能点目录下的 Markdown 文档：
+
+| 语言 | 文档路径 | 示例 |
+|------|----------|------|
+| 中文 | `docs/zh/chat-completion/{vendor}-chat-completion.md` | `docs/zh/chat-completion/openai-chat-completion.md` |
+| 英文 | `docs/en/chat-completion/{vendor}-chat-completion.md` | `docs/en/chat-completion/openai-chat-completion.md` |
+
+**模型列表更新规则**：
+- 从 `model_info.json` 中提取该厂家的所有模型及其 `mode` 类型
+- 根据 `mode` 类型将模型添加到对应的文档中
+- 只展示真实可用的模型，模型名称格式为 `{vendor}/{model-name}`
+
+**提取模型列表命令**：
+
+```bash
+# 提取 chat 模式模型
+cat test_openapi/model_info.json | jq -r '.data[] | select(.model_info.original_provider | ascii_downcase | contains("{vendor}")) | select(.model_info.mode == "chat") | .model_name'
+
+# 提取 completion 模式模型
+cat test_openapi/model_info.json | jq -r '.data[] | select(.model_info.original_provider | ascii_downcase | contains("{vendor}")) | select(.model_info.mode == "completion") | .model_name'
+
+# 提取 embedding 模式模型
+cat test_openapi/model_info.json | jq -r '.data[] | select(.model_info.original_provider | ascii_downcase | contains("{vendor}")) | select(.model_info.mode == "embedding") | .model_name'
+
+# 提取 image_generation 模式模型
+cat test_openapi/model_info.json | jq -r '.data[] | select(.model_info.original_provider | ascii_downcase | contains("{vendor}")) | select(.model_info.mode == "image_generation") | .model_name'
+
+# 提取 audio_transcription 模式模型
+cat test_openapi/model_info.json | jq -r '.data[] | select(.model_info.original_provider | ascii_downcase | contains("{vendor}")) | select(.model_info.mode == "audio_transcription") | .model_name'
+```
+
+### 3.2 更新 `{vendor}.yaml` 中的 examples
 
 根据测试结果更新 `docs/zh/openapi/{vendor}.yaml`：
 
@@ -328,7 +373,7 @@ curl -X POST "https://devaillm.nscloud.ai/v1/audio/transcriptions" \
 5. **Audio Transcriptions 端点**（如果存在 audio_transcription 模式模型）：
    - 基础请求 example
 
-#### 4.2 更新厂家说明文档
+### 3.3 更新厂家说明文档
 
 根据模型类型，更新对应的功能点文档：
 
@@ -346,7 +391,7 @@ curl -X POST "https://devaillm.nscloud.ai/v1/audio/transcriptions" \
 - 移除不支持的参数说明
 - 添加实际测试结果和示例
 
-#### 4.3 更新 Authorization 格式
+### 3.4 更新 Authorization 格式
 
 确保 `{vendor}.yaml` 中的 security scheme 使用 Bearer 格式：
 
@@ -359,7 +404,7 @@ securitySchemes:
     description: 在请求头中添加 Authorization: Bearer YOUR_API_KEY
 ```
 
-### 5. 生成 Bundled YAML
+## 4. 生成 Bundled YAML
 
 运行脚本生成 bundled 文件：
 
@@ -371,7 +416,7 @@ bash scripts/swagger_cli.sh
 - 生成 `docs/bundled/zh/{vendor}.bundled.yaml`
 - 验证 YAML 格式正确性
 
-### 6. 提交到远程仓库
+## 5. 提交到远程仓库
 
 ```bash
 git add docs/zh/openapi/{vendor}.yaml \
@@ -390,33 +435,39 @@ git commit -m "docs({vendor}): 更新 {vendor} API 文档
 git push origin main
 ```
 
-## 注意事项
+## 6. 注意事项
 
-1. **测试环境**：
-   - 使用测试环境 `devaillm.nscloud.ai` 进行验证
-   - 正式环境地址不在文档中体现
+### 6.1 测试环境
 
-2. **模型选择**：
-   - 优先选择功能最全面的模型作为 example
-   - completions 端点可能只有特定模型支持
+- 使用测试环境 `devaillm.nscloud.ai` 进行验证
+- 正式环境地址不在文档中体现
 
-3. **参数验证**：
-   - 仔细测试每个参数是否支持
-   - 不支持的参数必须从 examples 中移除
+### 6.2 模型选择
 
-4. **数据准确性**：
-   - 所有 examples 必须使用真实的测试数据
-   - 包括真实的 id、created 时间戳、token 数量等
+- 优先选择功能最全面的模型作为 example
+- completions 端点可能只有特定模型支持
 
-5. **文档一致性**：
-   - 确保 YAML 文件和 Markdown 文档内容一致
-   - 模型列表必须与实际可用的模型一致
+### 6.3 参数验证
 
-6. **GitBook 显示**：
-   - 确保 Authorization 格式正确显示为 `Bearer YOUR_API_KEY`
-   - 所有 examples 在 GitBook 中正确渲染
+- 仔细测试每个参数是否支持
+- 不支持的参数必须从 examples 中移除
 
-## 验证检查清单
+### 6.4 数据准确性
+
+- 所有 examples 必须使用真实的测试数据
+- 包括真实的 id、created 时间戳、token 数量等
+
+### 6.5 文档一致性
+
+- 确保 YAML 文件和 Markdown 文档内容一致
+- 模型列表必须与实际可用的模型一致
+
+### 6.6 GitBook 显示
+
+- 确保 Authorization 格式正确显示为 `Bearer YOUR_API_KEY`
+- 所有 examples 在 GitBook 中正确渲染
+
+## 7. 验证检查清单
 
 - [ ] 获取并保存 model_info.json
 - [ ] 提取目标厂家所有模型及其 mode 类型
@@ -438,19 +489,19 @@ git push origin main
 - [ ] 验证 YAML 格式正确性
 - [ ] 提交到远程仓库
 
-## 参考示例
+## 8. 参考示例
 
-完整的 DeepSeek 验证过程可参考：
+完整的验证过程可参考：
 - 测试记录：`test_openapi/test_deepseek.md`
 - 模型信息：`test_openapi/model_info.json`
 - API 文档：`docs/zh/openapi/deepseek.yaml`
 - 说明文档：`docs/zh/chat-completion/deepseek-chat-completion.md`
 
-## OpenAI 模型说明
+## 9. OpenAI 模型说明
 
 根据测试环境 `devaillm.nscloud.ai` 的验证，OpenAI 模型包括：
 - `gpt-5`
 - `gpt-5.2`
+- `gpt-5.4`
+- `gpt-5.3-codex`
 - `gpt-image-1`
-- `gpt-5.3-codex`（额外增加）
-- `gpt-5.4`（额外增加）

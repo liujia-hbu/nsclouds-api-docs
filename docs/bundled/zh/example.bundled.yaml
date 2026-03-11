@@ -27,39 +27,39 @@ tags:
     x-page-title: 音频转录
     x-page-icon: microphone
     description: 音频转录相关的 API，将音频文件转录为文本
-  - name: chat_completions_openai
+  - name: chat_completions_example
     x-parent: chat_completions
-    x-page-title: OpenAI
+    x-page-title: Example
     x-page-icon: brain
-    description: OpenAI 的对话生成 API
-  - name: embeddings_openai
+    description: Example 的对话生成 API
+  - name: embeddings_example
     x-parent: embeddings
-    x-page-title: OpenAI
+    x-page-title: Example
     x-page-icon: brain
-    description: OpenAI 的向量嵌入 API
-  - name: image_generations_openai
+    description: Example 的向量嵌入 API
+  - name: image_generations_example
     x-parent: image_generations
-    x-page-title: OpenAI
+    x-page-title: Example
     x-page-icon: brain
-    description: OpenAI 的图片生成 API
-  - name: image_edits_openai
+    description: Example 的图片生成 API
+  - name: image_edits_example
     x-parent: image_edits
-    x-page-title: OpenAI
+    x-page-title: Example
     x-page-icon: brain
-    description: OpenAI 的图片编辑 API
-  - name: audio_transcriptions_openai
+    description: Example 的图片编辑 API
+  - name: audio_transcriptions_example
     x-parent: audio_transcriptions
-    x-page-title: OpenAI
+    x-page-title: Example
     x-page-icon: brain
-    description: OpenAI 的音频转录 API
+    description: Example 的音频转录 API
 paths:
   /v1/chat/completions:
     post:
       tags:
-        - chat_completions_openai
+        - chat_completions_example
       summary: 创建聊天补全
       description: 基于输入的消息，生成模型回复。与 OpenAI 的 Chat API 完全兼容。
-      operationId: createChatCompletion_openai
+      operationId: createChatCompletion_example
       security:
         - APIKeyHeader: []
       requestBody:
@@ -229,10 +229,10 @@ paths:
   /v1/completions:
     post:
       tags:
-        - chat_completions_openai
+        - chat_completions_example
       summary: 创建文本补全
       description: 基于提供的提示，生成一个或多个补全结果。与 OpenAI 的 Completions API 兼容。
-      operationId: createCompletion_openai
+      operationId: createCompletion_example
       security:
         - APIKeyHeader: []
       requestBody:
@@ -311,10 +311,10 @@ paths:
   /v1/embeddings:
     post:
       tags:
-        - embeddings_openai
+        - embeddings_example
       summary: 创建嵌入向量
       description: 获取给定输入的向量表示。与 OpenAI 的 Embeddings API 兼容。
-      operationId: createEmbedding_openai
+      operationId: createEmbedding_example
       security:
         - APIKeyHeader: []
       requestBody:
@@ -420,10 +420,10 @@ paths:
   /v1/images/generations:
     post:
       tags:
-        - image_generations_openai
+        - image_generations_example
       summary: 创建图像
       description: 根据文本提示生成图像。与 OpenAI 的 Images API 兼容。
-      operationId: createImageGeneration_openai
+      operationId: createImageGeneration_example
       security:
         - APIKeyHeader: []
       requestBody:
@@ -506,6 +506,23 @@ paths:
                       input_tokens_details:
                         text_tokens: 20
                         image_tokens: 80
+            text/event-stream:
+              schema:
+                type: string
+                description: '流式响应以 Server-Sent Events 格式返回，每个事件由 ''event:'' 和 ''data:'' 行组成。'
+              examples:
+                streaming-response:
+                  summary: 流式响应示例
+                  description: 展示图像生成过程中的中间和最终事件。
+                  value: |
+                    event: image_generation.partial_image
+
+                    data: {"type":"image_generation.partial_image","b64_json":"iVBORw0K...","partial_image_index":0}
+
+
+                    event: image_generation.completed
+
+                    data: {"type":"image_generation.completed","b64_json":"iVBORw0K...","usage":{"total_tokens":100,"input_tokens":50,"output_tokens":50,"input_tokens_details":{"text_tokens":10,"image_tokens":40}}}
         '400':
           $ref: '#/components/responses/ErrorResponse'
         '401':
@@ -515,10 +532,10 @@ paths:
   /v1/images/edits:
     post:
       tags:
-        - image_edits_openai
+        - image_edits_example
       summary: 编辑图像
       description: 根据原始图像和文本提示创建编辑后的图像。与 OpenAI 的 Images API 兼容。
-      operationId: createImageEdit_openai
+      operationId: createImageEdit_example
       security:
         - APIKeyHeader: []
       requestBody:
@@ -589,10 +606,10 @@ paths:
   /v1/audio/transcriptions:
     post:
       tags:
-        - audio_transcriptions_openai
+        - audio_transcriptions_example
       summary: 音频转录
       description: 将音频文件转录为文本。与 OpenAI 的 Audio API 兼容。
-      operationId: createTranscription_openai
+      operationId: createTranscription_example
       security:
         - APIKeyHeader: []
       requestBody:
