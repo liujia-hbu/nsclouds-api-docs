@@ -12,4 +12,5 @@ The text completion API allows you to generate text content, suitable for scenar
 
 - [Google](google-completions.md)
 - [Anthropic](anthropic-completions.md)
+- [Moonshot AI](moonshotai-completions.md)
 - [OpenAI](openai-completions.md)

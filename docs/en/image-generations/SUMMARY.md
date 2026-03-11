@@ -10,6 +10,4 @@ The image generation API allows you to generate images based on text prompts.
 
 ## Supported Vendors
 
-- [DeepSeek](deepseek-image-generations.md)
-- [ByteDance Doubao (volcengine)](volcengine-image-generations.md)
 - [OpenAI](openai-image-generations.md)

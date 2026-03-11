@@ -6,6 +6,7 @@
   * [Google](chat-completion/google-chat-completion.md)
   * [Anthropic](chat-completion/anthropic-chat-completion.md)
   * [Moonshot AI](chat-completion/moonshotai-chat-completion.md)
+  * [MiniMax](chat-completion/minimax-chat-completion.md)
 * [Text Completion](completions/README.md)
   * [OpenAI](completions/openai-completions.md)
   * [Google](completions/google-completions.md)

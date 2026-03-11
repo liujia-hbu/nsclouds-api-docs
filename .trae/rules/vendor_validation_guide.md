@@ -510,4 +510,17 @@ git push origin main
 - `/v1/completions` 端点（模型不支持 OpenAI 兼容模式）
 - `/v1/chat/completions` 图像输入（模型无法识别图像）
 
-## 10. Anthropic 模型说明
+## 10. MiniMax 模型说明
+
+根据测试环境 `devaillm.nscloud.ai` 的验证，MiniMax 模型包括：
+- `MiniMax-M2.5`
+
+MiniMax-M2.5 为 chat 模式，支持：
+- `/v1/chat/completions` 端点（基础请求和流式响应）
+- 流式响应支持 `reasoning_content` 字段，显示模型的推理过程
+
+不支持：
+- `/v1/completions` 端点（模型不支持 OpenAI 兼容模式）
+- `/v1/chat/completions` 图像输入（模型无法识别图像）
+
+## 11. Anthropic 模型说明

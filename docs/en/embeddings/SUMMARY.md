@@ -10,6 +10,4 @@ The vector embeddings API allows you to convert text into vector representations
 
 ## Supported Vendors
 
-- [DeepSeek](deepseek-embeddings.md)
-- [ByteDance Doubao (volcengine)](volcengine-embeddings.md)
 - [OpenAI](openai-embeddings.md)

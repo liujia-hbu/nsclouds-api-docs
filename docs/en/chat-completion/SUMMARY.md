@@ -7,8 +7,9 @@ metaLinks:
 # Chat Completion
 
 - [DeepSeek](deepseek-chat-completion.md)
-- [ByteDance Doubao (volcengine)](volcengine-chat-completion.md)
+- [Volcengine](volcengine-chat-completion.md)
 - [Google](google-chat-completion.md)
 - [Anthropic](anthropic-chat-completion.md)
 - [Moonshot AI](moonshotai-chat-completion.md)
+- [MiniMax](minimax-chat-completion.md)
 - [OpenAI](openai-chat-completion.md)

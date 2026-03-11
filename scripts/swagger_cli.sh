@@ -12,6 +12,8 @@ swagger-cli bundle docs/zh/openapi/anthropic.yaml -o docs/bundled/zh/anthropic.b
 swagger-cli validate docs/bundled/zh/anthropic.bundled.yaml
 swagger-cli bundle docs/zh/openapi/moonshotai.yaml -o docs/bundled/zh/moonshotai.bundled.yaml -t yaml
 swagger-cli validate docs/bundled/zh/moonshotai.bundled.yaml
+swagger-cli bundle docs/zh/openapi/minimax.yaml -o docs/bundled/zh/minimax.bundled.yaml -t yaml
+swagger-cli validate docs/bundled/zh/minimax.bundled.yaml
 
 # English version
 swagger-cli bundle docs/en/openapi/deepseek.yaml -o docs/bundled/en/deepseek.bundled.yaml -t yaml
@@ -28,3 +30,5 @@ swagger-cli bundle docs/en/openapi/anthropic.yaml -o docs/bundled/en/anthropic.b
 swagger-cli validate docs/bundled/en/anthropic.bundled.yaml
 swagger-cli bundle docs/en/openapi/moonshotai.yaml -o docs/bundled/en/moonshotai.bundled.yaml -t yaml
 swagger-cli validate docs/bundled/en/moonshotai.bundled.yaml
+swagger-cli bundle docs/en/openapi/minimax.yaml -o docs/bundled/en/minimax.bundled.yaml -t yaml
+swagger-cli validate docs/bundled/en/minimax.bundled.yaml

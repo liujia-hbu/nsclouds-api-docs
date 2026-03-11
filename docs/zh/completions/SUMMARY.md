@@ -6,4 +6,5 @@
 
 - [Google](google-completions.md)
 - [Anthropic](anthropic-completions.md)
-- [OpenAI](openai-completions.md)
+- [Moonshot AI](moonshotai-completions.md)
+- [OpenAI](openai-completions.md)   
