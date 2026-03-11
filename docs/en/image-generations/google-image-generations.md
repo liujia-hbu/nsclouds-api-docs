@@ -17,11 +17,11 @@ Google's image generation API, compatible with OpenAI interface format.
 
 | Function | Status | Description |
 |----------|--------|-------------|
-| Basic Request | ❌ Server Error | Too Many Requests |
-| Image Edit | ❌ Server Error | Too Many Requests |
+| Basic Request | ✅ Verification Passed | Returns base64 image |
+| Image Edit | ⏳ Pending | - |
 
 ### 2. API Details
 
-{% openapi-operation spec="google" path="/v1/images/generations" method="post" %}
+{% openapi-operation spec="google-en" path="/v1/images/generations" method="post" %}
 [OpenAPI Google](https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/en/google.bundled.yaml)
 {% endopenapi-operation %}

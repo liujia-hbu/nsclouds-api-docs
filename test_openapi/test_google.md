@@ -249,16 +249,46 @@ curl -X POST "https://devaillm.nscloud.ai/v1/images/generations" \
 
 ```json
 {
-  "error": {
-    "message": "litellm.APIConnectionError: ZenlayerException - {\"error\":{\"message\":\"Too Many Requests\"}}. Received Model Group=imagen-3.0-generate-001\nAvailable Model Group Fallbacks=None",
-    "type": null,
-    "param": null,
-    "code": "500"
+  "created": 1773225600,
+  "data": [
+    {
+      "b64_json": "iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADwf7zUAAA...(base64 图片数据已省略)",
+      "revised_prompt": null,
+      "url": null
+    }
+  ],
+  "output_format": null,
+  "quality": null,
+  "size": null,
+  "usage": {
+    "total_tokens": 0,
+    "input_tokens": 0,
+    "input_tokens_details": {
+      "image_tokens": 0,
+      "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "generated_images": null
   }
 }
 ```
 
-**状态**: ❌ 服务端错误（Too Many Requests）
+**状态**: ✅ 验证通过
+
+---
+
+### `/v1/images/generations` - 其他模型测试
+
+所有 6 个 image_generation 模式模型测试结果：
+
+| 模型 | 状态 | 说明 |
+|------|------|------|
+| imagen-3.0-generate-001 | ✅ | 返回 base64 图片 |
+| imagen-3.0-generate-002 | ✅ | 返回 base64 图片 |
+| imagen-3.0-fast-generate-001 | ✅ | 返回 base64 图片 |
+| gemini-2.5-flash-image | ✅ | 返回 base64 图片 |
+| gemini-3-pro-image-preview | ✅ | 返回 base64 图片 |
+| gemini-3.1-flash-image-preview | ✅ | 返回 base64 图片 |
 
 ---
 
@@ -301,7 +331,7 @@ curl -X POST "https://devaillm.nscloud.ai/v1/images/edits" \
 | 函数调用 | ✅ | chat/completions 函数调用验证通过（内容被过滤） |
 | completions 接口 | ✅ | completions 端点验证通过 |
 | embeddings 接口 | ⏳ 待验证 | 未测试 |
-| image generations 接口 | ❌ | 服务端错误（Too Many Requests） |
+| image generations 接口 | ✅ | 6 个模型全部验证通过，返回 base64 图片 |
 | audio transcriptions 接口 | ⏳ 待验证 | 未测试 |
 
 ## 各模型详细验证
@@ -331,8 +361,48 @@ curl -X POST "https://devaillm.nscloud.ai/v1/images/edits" \
 | chat/completions 函数调用 | ⏳ 待验证 |
 | completions | ⏳ 待验证 |
 | embeddings | ⏳ 待验证 |
-| image generations | ❌ |
+| image generations | ✅ |
 | audio transcriptions | ⏳ 待验证 |
+
+---
+
+### imagen-3.0-generate-002
+
+| 端点/功能 | 状态 |
+|-----------|------|
+| image generations | ✅ |
+
+---
+
+### imagen-3.0-fast-generate-001
+
+| 端点/功能 | 状态 |
+|-----------|------|
+| image generations | ✅ |
+
+---
+
+### gemini-2.5-flash-image
+
+| 端点/功能 | 状态 |
+|-----------|------|
+| image generations | ✅ |
+
+---
+
+### gemini-3-pro-image-preview
+
+| 端点/功能 | 状态 |
+|-----------|------|
+| image generations | ✅ |
+
+---
+
+### gemini-3.1-flash-image-preview
+
+| 端点/功能 | 状态 |
+|-----------|------|
+| image generations | ✅ |
 
 ---
 
@@ -341,11 +411,21 @@ curl -X POST "https://devaillm.nscloud.ai/v1/images/edits" \
 1. **已验证端点**:
    - `/v1/chat/completions` (基础请求和流式响应)
    - `/v1/completions`
+   - `/v1/images/generations` (6 个模型全部验证通过)
 
 2. **已验证功能**:
    - Chat 模式基础请求
    - Chat 模式流式响应
    - Completions 接口
+   - Image Generations 接口（返回 base64 图片）
+
+3. **Image Generation 模型**:
+   - `imagen-3.0-generate-001` ✅
+   - `imagen-3.0-generate-002` ✅
+   - `imagen-3.0-fast-generate-001` ✅
+   - `gemini-2.5-flash-image` ✅
+   - `gemini-3-pro-image-preview` ✅
+   - `gemini-3.1-flash-image-preview` ✅
 
 3. **不支持端点**:
    - `/v1/images/generations` (服务端错误)
