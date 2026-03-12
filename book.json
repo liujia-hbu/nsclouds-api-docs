@@ -39,7 +39,7 @@
           "url": "docs/bundled/cn/en/openai.bundled.yaml"
         },
         "openai-en-global": {
-          "url": "docs/bundled/global/en/openai.bundled.yaml"
+          "url": "https://raw.githubusercontent.com/liujia-hbu/nsclouds-api-docs/main/docs/bundled/global/en/openai.bundled.yaml"
         },
         "volcengine-zh-cn": {
           "url": "docs/bundled/cn/zh/volcengine.bundled.yaml"
