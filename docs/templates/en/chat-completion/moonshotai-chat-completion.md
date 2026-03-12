@@ -4,6 +4,10 @@
 
 Moonshot AI's chat completion API, compatible with OpenAI interface format.
 
+{% hint style="success" %}
+This API is compatible with OpenAI interface format.
+{% endhint %}
+
 **Model List:**
 
 * `kimi-k2.5` (chat mode)

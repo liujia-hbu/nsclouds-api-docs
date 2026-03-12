@@ -4,6 +4,10 @@
 
 Google 的图像生成 API，与 OpenAI 接口格式兼容。
 
+{% hint style="success" %}
+此 API 与 OpenAI 接口格式兼容。
+{% endhint %}
+
 **模型列表：**
 
 * `imagen-3.0-generate-001` (image_generation 模式)

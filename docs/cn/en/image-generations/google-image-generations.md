@@ -4,6 +4,10 @@
 
 Google's image generation API, compatible with OpenAI interface format.
 
+{% hint style="success" %}
+This API is compatible with OpenAI interface format.
+{% endhint %}
+
 **Model List:**
 
 * `imagen-3.0-generate-001` (image_generation mode)

@@ -4,6 +4,10 @@
 
 Moonshot AI 的对话生成 API，与 OpenAI 接口格式兼容。
 
+{% hint style="success" %}
+此 API 与 OpenAI 接口格式兼容。
+{% endhint %}
+
 **模型列表：**
 
 * `kimi-k2.5` (chat 模式)
