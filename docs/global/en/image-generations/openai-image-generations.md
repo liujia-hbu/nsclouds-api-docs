@@ -23,7 +23,8 @@ This API is compatible with OpenAI interface format.
 
 | Feature | Status | Description |
 | ---- | ----- | -- |
-| Basic Request | ⚠️ Server Error | Returns 500 error (watermark parameter issue) |
+| Basic Request | ✅ Verified | /v1/images/generations verified |
+| Image Edit | ✅ Verified | /v1/images/edits verified |
 
 ### 2. API Details
 

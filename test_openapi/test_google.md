@@ -72,6 +72,7 @@ curl -X POST "https://devaillm.nscloud.ai/v1/chat/completions" \
   -H "Authorization: Bearer $NGAA_LLM_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"model": "gemini-2.5-flash", "messages": [{"role": "user", "content": "Hello!"}], "stream": true}'
+
 ```
 
 **响应结果**:
